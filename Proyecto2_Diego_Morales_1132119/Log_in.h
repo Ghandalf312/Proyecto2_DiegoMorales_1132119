@@ -1,6 +1,7 @@
 #pragma once
 #include <stdio.h> //Para remover y renombrar los archivos
 #include "Agenda.h"
+
 namespace Proyecto2DiegoMorales1132119 {
 
 	using namespace System;

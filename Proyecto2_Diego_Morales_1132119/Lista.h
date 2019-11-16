@@ -1,5 +1,9 @@
 #pragma once
 #include "Nodo.h"
+#include <stdlib.h>
+#include <string>
+//using namespace std;
+
 class Lista
 {
 public:
@@ -14,5 +18,6 @@ public:
 	void PushPos(double valor, int pos);//Enlista un elemento en una posición en específico
 	bool IsEmpty();//Función que ayudará si la lista está vacía, para asignarle un nuevo valor
 	int Size();//Devuelve el tamaño de la ista
+
 };
 

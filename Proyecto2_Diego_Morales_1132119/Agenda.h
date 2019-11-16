@@ -1,6 +1,7 @@
 #pragma once
+#include "Lista.h"
+#include "Nodo.h"
 #include <stdio.h> //Para remover y renombrar los archivos
-#include "string"
 #include <msclr/marshal.h>
 namespace Proyecto2DiegoMorales1132119 {
 
@@ -12,7 +13,8 @@ namespace Proyecto2DiegoMorales1132119 {
 	using namespace System::Drawing;
 	using namespace System::IO;
 	using namespace System::Diagnostics;
-	using namespace std;
+	//using namespace std;
+
 	/// <summary>
 	/// Resumen de Agenda
 	/// </summary>
@@ -796,8 +798,8 @@ private: System::ComponentModel::IContainer^ components;
 #pragma endregion
 		String^ texto;
 		String^ usuario; //Covertirlo para removerlo y renombrarlo	
-		
-	
+		Lista* MiLista;
+
 	private: System::Void BtnFecha_Click(System::Object^ sender, System::EventArgs^ e) {
 		MonthCalendar^ calendario = gcnew MonthCalendar();
 		String^ mes = mtbMes->Text;
@@ -814,6 +816,7 @@ private: System::ComponentModel::IContainer^ components;
 		}
 	}
 private: System::Void Agenda_Load(System::Object^ sender, System::EventArgs^ e) {
+	
 	StreamReader^ sr = gcnew StreamReader("UsuarioActivo.txt");
 	usuario = sr->ReadLine();
 	sr->Close();
@@ -821,6 +824,8 @@ private: System::Void Agenda_Load(System::Object^ sender, System::EventArgs^ e) 
 	remove("UsuarioActivo.txt");
 
 	StreamReader^ sr1 = gcnew StreamReader(usuario+".txt");
+	String^ cadena = sr1->ReadLine();
+	/////
 	sr1->Close();
 }
 private: System::Void BtnTarea_Click(System::Object^ sender, System::EventArgs^ e) {
