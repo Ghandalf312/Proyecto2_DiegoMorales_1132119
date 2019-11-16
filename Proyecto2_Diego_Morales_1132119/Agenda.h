@@ -13,7 +13,7 @@ namespace Proyecto2DiegoMorales1132119 {
 	using namespace System::Drawing;
 	using namespace System::IO;
 	using namespace System::Diagnostics;
-	//using namespace std;
+	using namespace std;
 
 	/// <summary>
 	/// Resumen de Agenda
@@ -54,7 +54,8 @@ namespace Proyecto2DiegoMorales1132119 {
 	private: System::Windows::Forms::Button^ btnRecordartorio;
 
 
-	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::MonthCalendar^ monthCalendar1;
 	private: System::Windows::Forms::Button^ btnFecha;
@@ -133,6 +134,16 @@ private: System::Windows::Forms::TextBox^ tbDescripcion3;
 private: System::Windows::Forms::Button^ btnCrearR;
 private: System::Windows::Forms::Button^ btnCrearA;
 private: System::Windows::Forms::Timer^ timer1;
+private: System::Windows::Forms::ListBox^ listBox1;
+private: System::Windows::Forms::Label^ label22;
+private: System::Windows::Forms::Label^ label26;
+private: System::Windows::Forms::Label^ label25;
+private: System::Windows::Forms::Label^ label29;
+private: System::Windows::Forms::Label^ label27;
+private: System::Windows::Forms::Label^ label23;
+private: System::Windows::Forms::Label^ label30;
+private: System::Windows::Forms::Label^ label28;
+private: System::Windows::Forms::Label^ label24;
 private: System::ComponentModel::IContainer^ components;
 
 	protected:
@@ -155,7 +166,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->Mes = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnRecordartorio = (gcnew System::Windows::Forms::Button());
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->monthCalendar1 = (gcnew System::Windows::Forms::MonthCalendar());
 			this->btnFecha = (gcnew System::Windows::Forms::Button());
@@ -165,6 +175,7 @@ private: System::ComponentModel::IContainer^ components;
 			this->btnAlarma = (gcnew System::Windows::Forms::Button());
 			this->tabControl = (gcnew System::Windows::Forms::TabControl());
 			this->tabActividad = (gcnew System::Windows::Forms::TabPage());
+			this->label22 = (gcnew System::Windows::Forms::Label());
 			this->btnCrearE = (gcnew System::Windows::Forms::Button());
 			this->mtbPrioridad1 = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
@@ -209,6 +220,15 @@ private: System::ComponentModel::IContainer^ components;
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->label23 = (gcnew System::Windows::Forms::Label());
+			this->label24 = (gcnew System::Windows::Forms::Label());
+			this->label25 = (gcnew System::Windows::Forms::Label());
+			this->label27 = (gcnew System::Windows::Forms::Label());
+			this->label28 = (gcnew System::Windows::Forms::Label());
+			this->label29 = (gcnew System::Windows::Forms::Label());
+			this->label26 = (gcnew System::Windows::Forms::Label());
+			this->label30 = (gcnew System::Windows::Forms::Label());
 			this->tabControl->SuspendLayout();
 			this->tabActividad->SuspendLayout();
 			this->tabRecordatorio->SuspendLayout();
@@ -252,18 +272,10 @@ private: System::ComponentModel::IContainer^ components;
 			this->btnRecordartorio->UseVisualStyleBackColor = true;
 			this->btnRecordartorio->Click += gcnew System::EventHandler(this, &Agenda::BtnTarea_Click);
 			// 
-			// richTextBox1
-			// 
-			this->richTextBox1->Location = System::Drawing::Point(284, 136);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(157, 226);
-			this->richTextBox1->TabIndex = 8;
-			this->richTextBox1->Text = L"";
-			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(305, 112);
+			this->label3->Location = System::Drawing::Point(281, 127);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(43, 13);
 			this->label3->TabIndex = 9;
@@ -339,6 +351,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabActividad
 			// 
+			this->tabActividad->Controls->Add(this->label26);
+			this->tabActividad->Controls->Add(this->label25);
+			this->tabActividad->Controls->Add(this->label22);
 			this->tabActividad->Controls->Add(this->btnCrearE);
 			this->tabActividad->Controls->Add(this->mtbPrioridad1);
 			this->tabActividad->Controls->Add(this->label11);
@@ -366,6 +381,17 @@ private: System::ComponentModel::IContainer^ components;
 			this->tabActividad->Text = L"Actividad";
 			this->tabActividad->UseVisualStyleBackColor = true;
 			// 
+			// label22
+			// 
+			this->label22->AutoSize = true;
+			this->label22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label22->Location = System::Drawing::Point(152, 10);
+			this->label22->Name = L"label22";
+			this->label22->Size = System::Drawing::Size(65, 12);
+			this->label22->TabIndex = 20;
+			this->label22->Text = L"*Mes/Día/Año";
+			// 
 			// btnCrearE
 			// 
 			this->btnCrearE->Location = System::Drawing::Point(73, 233);
@@ -378,7 +404,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// mtbPrioridad1
 			// 
-			this->mtbPrioridad1->Location = System::Drawing::Point(59, 186);
+			this->mtbPrioridad1->Location = System::Drawing::Point(66, 186);
 			this->mtbPrioridad1->Mask = L"##";
 			this->mtbPrioridad1->Name = L"mtbPrioridad1";
 			this->mtbPrioridad1->Size = System::Drawing::Size(100, 20);
@@ -395,7 +421,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tbID1
 			// 
-			this->tbID1->Location = System::Drawing::Point(73, 207);
+			this->tbID1->Location = System::Drawing::Point(78, 207);
 			this->tbID1->Name = L"tbID1";
 			this->tbID1->Size = System::Drawing::Size(100, 20);
 			this->tbID1->TabIndex = 17;
@@ -420,7 +446,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tbDescripcion1
 			// 
-			this->tbDescripcion1->Location = System::Drawing::Point(70, 163);
+			this->tbDescripcion1->Location = System::Drawing::Point(75, 163);
 			this->tbDescripcion1->Name = L"tbDescripcion1";
 			this->tbDescripcion1->Size = System::Drawing::Size(100, 20);
 			this->tbDescripcion1->TabIndex = 13;
@@ -436,7 +462,7 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tbMat
 			// 
-			this->tbMat->Location = System::Drawing::Point(64, 137);
+			this->tbMat->Location = System::Drawing::Point(69, 137);
 			this->tbMat->Name = L"tbMat";
 			this->tbMat->Size = System::Drawing::Size(100, 20);
 			this->tbMat->TabIndex = 11;
@@ -527,6 +553,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabRecordatorio
 			// 
+			this->tabRecordatorio->Controls->Add(this->label29);
+			this->tabRecordatorio->Controls->Add(this->label27);
+			this->tabRecordatorio->Controls->Add(this->label23);
 			this->tabRecordatorio->Controls->Add(this->btnCrearR);
 			this->tabRecordatorio->Controls->Add(this->mtbPrioridad2);
 			this->tabRecordatorio->Controls->Add(this->mtbLimite1);
@@ -644,6 +673,9 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			// tabAlarma
 			// 
+			this->tabAlarma->Controls->Add(this->label30);
+			this->tabAlarma->Controls->Add(this->label28);
+			this->tabAlarma->Controls->Add(this->label24);
 			this->tabAlarma->Controls->Add(this->btnCrearA);
 			this->tabAlarma->Controls->Add(this->mtbPrioridad3);
 			this->tabAlarma->Controls->Add(this->mtbLimite2);
@@ -763,11 +795,110 @@ private: System::ComponentModel::IContainer^ components;
 			// 
 			this->timer1->Interval = 60000;
 			// 
+			// listBox1
+			// 
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->HorizontalScrollbar = true;
+			this->listBox1->Location = System::Drawing::Point(284, 143);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->SelectionMode = System::Windows::Forms::SelectionMode::None;
+			this->listBox1->Size = System::Drawing::Size(157, 225);
+			this->listBox1->TabIndex = 16;
+			// 
+			// label23
+			// 
+			this->label23->AutoSize = true;
+			this->label23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label23->Location = System::Drawing::Point(161, 13);
+			this->label23->Name = L"label23";
+			this->label23->Size = System::Drawing::Size(65, 12);
+			this->label23->TabIndex = 30;
+			this->label23->Text = L"*Mes/Día/Año";
+			// 
+			// label24
+			// 
+			this->label24->AutoSize = true;
+			this->label24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label24->Location = System::Drawing::Point(161, 15);
+			this->label24->Name = L"label24";
+			this->label24->Size = System::Drawing::Size(65, 12);
+			this->label24->TabIndex = 40;
+			this->label24->Text = L"*Mes/Día/Año";
+			// 
+			// label25
+			// 
+			this->label25->AutoSize = true;
+			this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label25->Location = System::Drawing::Point(172, 51);
+			this->label25->Name = L"label25";
+			this->label25->Size = System::Drawing::Size(74, 12);
+			this->label25->TabIndex = 21;
+			this->label25->Text = L"*Formato 24 hrs.";
+			// 
+			// label27
+			// 
+			this->label27->AutoSize = true;
+			this->label27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label27->Location = System::Drawing::Point(173, 33);
+			this->label27->Name = L"label27";
+			this->label27->Size = System::Drawing::Size(74, 12);
+			this->label27->TabIndex = 31;
+			this->label27->Text = L"*Formato 24 hrs.";
+			// 
+			// label28
+			// 
+			this->label28->AutoSize = true;
+			this->label28->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label28->Location = System::Drawing::Point(173, 35);
+			this->label28->Name = L"label28";
+			this->label28->Size = System::Drawing::Size(74, 12);
+			this->label28->TabIndex = 41;
+			this->label28->Text = L"*Formato 24 hrs.";
+			// 
+			// label29
+			// 
+			this->label29->AutoSize = true;
+			this->label29->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label29->Location = System::Drawing::Point(179, 80);
+			this->label29->Name = L"label29";
+			this->label29->Size = System::Drawing::Size(35, 12);
+			this->label29->TabIndex = 32;
+			this->label29->Text = L"*1 al 10";
+			// 
+			// label26
+			// 
+			this->label26->AutoSize = true;
+			this->label26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label26->Location = System::Drawing::Point(172, 189);
+			this->label26->Name = L"label26";
+			this->label26->Size = System::Drawing::Size(35, 12);
+			this->label26->TabIndex = 33;
+			this->label26->Text = L"*1 al 10";
+			// 
+			// label30
+			// 
+			this->label30->AutoSize = true;
+			this->label30->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 6.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label30->Location = System::Drawing::Point(179, 82);
+			this->label30->Name = L"label30";
+			this->label30->Size = System::Drawing::Size(35, 12);
+			this->label30->TabIndex = 42;
+			this->label30->Text = L"*1 al 10";
+			// 
 			// Agenda
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(710, 390);
+			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->tabControl);
 			this->Controls->Add(this->btnAlarma);
 			this->Controls->Add(this->btnActividad);
@@ -776,7 +907,6 @@ private: System::ComponentModel::IContainer^ components;
 			this->Controls->Add(this->btnFecha);
 			this->Controls->Add(this->monthCalendar1);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->btnRecordartorio);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Mes);
@@ -796,50 +926,205 @@ private: System::ComponentModel::IContainer^ components;
 
 		}
 #pragma endregion
-		String^ texto;
-		String^ usuario; //Covertirlo para removerlo y renombrarlo	
+		String^ texto; //Variable String que acumulará el texto cuando quiere agregar un evento, recordatorio o alarma.
+		String^ usuario; //Variable que guarda el usuario qu este activo cuando ingresa a la agenda.
 		Lista* MiLista;
 
 	private: System::Void BtnFecha_Click(System::Object^ sender, System::EventArgs^ e) {
-		MonthCalendar^ calendario = gcnew MonthCalendar();
-		String^ mes = mtbMes->Text;
-		String^ anio = mtbAnio->Text;
+		MonthCalendar^ calendario = gcnew MonthCalendar(); //Creación de un avariable de tipo MonthCalendar
+		String^ mes = mtbMes->Text;//Guarda el mes ingresado por el usuario.
+		String^ anio = mtbAnio->Text;//Guarda el año ingresado por el usuario.
 		int m = int::Parse(mes);
-		if (m < 1 || m > 12)
+		if (m < 1 || m > 12)//Se convierte el la variable string a int para verificar si es de Enero a Diciembre.
 		{
 			MessageBox::Show("Por favor, ingrese un mes válido.");
 		}
 		else
-		{
+		{//Si no cumple, quiere decir que un mes válido y crea un variable ripo DateTime que guardará lo que ingresó el usuario.
 			DateTime fecha = System::Convert::ToDateTime(mes + "/01/" + anio);
-			monthCalendar1->SetDate(fecha);
+			monthCalendar1->SetDate(fecha);//Establece la fecha ingresada por el usuario.
 		}
 	}
 private: System::Void Agenda_Load(System::Object^ sender, System::EventArgs^ e) {
-	
+	//Cuando cargue el Form de la agenda, leerá cuál es el usuario activo, para luego usar elarchivo de texto del usuario previamente creado.
 	StreamReader^ sr = gcnew StreamReader("UsuarioActivo.txt");
 	usuario = sr->ReadLine();
 	sr->Close();
 
-	remove("UsuarioActivo.txt");
+	remove("UsuarioActivo.txt");//Elimina el archivo de texto, porque ya no será útil.
 
 	StreamReader^ sr1 = gcnew StreamReader(usuario+".txt");
 	String^ cadena = sr1->ReadLine();
-	/////
 	sr1->Close();
+	
 }
-private: System::Void BtnTarea_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void BtnTarea_Click(System::Object^ sender, System::EventArgs^ e) {//Cuando seleccione el botón de "crear recordatorio", habilitará el tabcontrol y lo mandará la página para ingresar el recordatorio.
 	tabControl->Enabled = true;
 	tabControl->SelectedTab = tabRecordatorio;
 }
 private: System::Void MonthCalendar1_DateSelected(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e) {
-	String^ fecha = monthCalendar1->SelectionRange->Start.ToShortDateString();
+	//Evento que cuando selecciona una fecha del MonthCalendar, este le desplegará las actividades, recordatorios y alarmas que creó para ese día.
+	listBox1->Items->Clear();
+	String^ fecha = monthCalendar1->SelectionRange->Start.ToShortDateString();//Guarda la fecha que seleccionó
+	if (fecha->Length < 10)//El formato dado por le MonthCalendar dado el caso el día sea entre 1 a 9, es de ##/#/####, cuando mi formato en específico es ##/##/####, agrega el 0 en la posición indicada.
+	{
+		fecha = fecha->Insert(3, "0");
+	}
+	StreamReader^ sr = gcnew StreamReader(usuario + ".txt");//Lee el archivo del usuario activo.
+	//Variables que guardarán datos específicos de la tarea agregada por el usuario.
+	int pos;//Variable que guardará la posición cuando se esté extrayendo los textos de la tarea.
+	String^ aux;
+	String^ letraT;
+	String^ fechaT;
+	String^ hiT;
+	String^ hfT;
+	String^ lugarT;
+	String^ personasT;
+	String^ materialT;
+	String^ descripcionT;
+	String^ prioridadT;
+	String^ idT;
+
+	String^ textofinal;
+
+	String^ linea = sr->ReadLine();//Lee una línea de texto.
+	while (linea != "!")//Mientras sea diferente de vacío.
+	{
+		if (linea->Contains(fecha))//Si la linea de texto contiene la fecha, tal y como fue dada en el formato.
+		{
+			String^ subcadena = linea->Substring(0,1);//Hace una cadena que guardará la letra que representa el tipo de tarea que es
+			//Si es Actividad.
+			if (subcadena == "E")
+			{
+				pos = linea->IndexOf(",");
+				letraT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				fechaT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				hiT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				hfT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				lugarT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				personasT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				materialT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				descripcionT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				prioridadT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				idT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				textofinal = "Evento: " + "De" + hiT + " a " + hfT + ". En " + lugarT + ". " + descripcionT + ".";
+				listBox1->Items->Add(textofinal);
+			}
+			//Si es Recordatorio.
+			else if (subcadena == "R")
+			{
+				pos = linea->IndexOf(",");
+				letraT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				fechaT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				hiT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				prioridadT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				idT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				textofinal = "Recordatorio: " + "Hora " + hiT +  ". " + descripcionT + ".";
+				listBox1->Items->Add(textofinal);
+			}
+			//Si es Alarma.
+			else if (subcadena == "A")
+			{
+				pos = linea->IndexOf(",");
+				letraT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				fechaT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				hiT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				prioridadT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				pos = linea->IndexOf(",");
+				idT = linea->Substring(0, pos);
+				aux = linea;
+				linea = aux->Substring(pos + 1);
+
+				textofinal = "Alarma: " + "Hora " + hiT + ". " + descripcionT + ".";
+				listBox1->Items->Add(textofinal);
+			}
+			else {
+		MessageBox::Show("Error en el archivo de texto, arregle el archivo e intente de nuevo.");
+			}
+			
+		}
+		linea = sr->ReadLine();//Leerá la siguiente línea de texto para verificar si está vacío o no.
+	}
+	sr->Close();//Cierra el archivo de texto.
 }
-private: System::Void BtnActividad_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void BtnActividad_Click(System::Object^ sender, System::EventArgs^ e) {//Cuando seleccione el botón de "crear actividad", habilitará el tabcontrol y lo mandará la página para ingresar la actividad.
 	tabControl->Enabled = true;
 	tabControl->SelectedTab = tabActividad;
 }
-private: System::Void BtnAlarma_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void BtnAlarma_Click(System::Object^ sender, System::EventArgs^ e) {//Cuando seleccione el botón de "crear alarma", habilitará el tabcontrol y lo mandará la página para ingresar la alarma que desee.
 	tabControl->Enabled = true;
 	tabControl->SelectedTab = tabAlarma;
 }
@@ -854,22 +1139,26 @@ private: System::Void BtnCrearE_Click(System::Object^ sender, System::EventArgs^
 	String^ prioridad = mtbPrioridad1->Text;
 	String^ id = tbID1->Text;
 	
-	texto += "E," + fecha + ", " + horaI + ", " + horaF + ", " + lugar + ", " + Personas + ", " + material + ", " + descripcion + ", " + prioridad + ", " + id + ", ";
+	texto = "E," + fecha + ", " + horaI + ", " + horaF + ", " + lugar + ", " + Personas + ", " + material + ", " + descripcion + ", " + prioridad + ", " + id + ", ";
 	StreamReader^ sr = gcnew StreamReader(usuario + ".txt");
 	String^ texto1 = sr->ReadToEnd();
 	sr->Close();
-	StreamWriter^ sw = gcnew StreamWriter("1234.txt");
+
+	StreamWriter^ sw = gcnew StreamWriter(usuario + ".txt");
 	sw->WriteLine(texto);
 	sw->WriteLine(texto1);
 	sw->Close();
-   
-	
-	msclr::interop::marshal_context oMarshalContext;
-	const char* pcUser = oMarshalContext.marshal_as < const char* > (usuario);//Convertido a const char*, hay que incluir la libreria de msclr/marshal.
 
-	remove(pcUser + '.txt');
-	rename("1234.txt", pcUser + '.txt');
-
+	MessageBox::Show("Actividad creada exitosamente.");
+	mtbFecha1->Clear();
+	mtbHoraInicio->Clear();
+	mtbHoraFin->Clear();
+	tbLugar->Clear();
+	tbPersonas->Clear();
+	tbMat->Clear();
+	tbDescripcion1->Clear();
+	mtbPrioridad1->Clear();
+	tbID1->Clear();
 }
 private: System::Void BtnCrearR_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ fecha = mtbFecha2->Text;
@@ -878,21 +1167,22 @@ private: System::Void BtnCrearR_Click(System::Object^ sender, System::EventArgs^
 	String^ prioridad = mtbPrioridad2->Text;
 	String^ id = tbID2->Text;
 
-	texto += "R," + fecha + ", " + horaL + ", " + descripcion + ", " + prioridad + ", " + id + ", ";
+	texto = "R," + fecha + ", " + horaL + ", " + descripcion + ", " + prioridad + ", " + id + ", ";
 	StreamReader^ sr = gcnew StreamReader(usuario + ".txt");
 	String^ texto1 = sr->ReadToEnd();
 	sr->Close();
-	StreamWriter^ sw = gcnew StreamWriter("1234.txt");
+
+	StreamWriter^ sw = gcnew StreamWriter(usuario + ".txt");
 	sw->WriteLine(texto);
 	sw->WriteLine(texto1);
 	sw->Close();
 
-
-	msclr::interop::marshal_context oMarshalContext;
-	const char* pcUser = oMarshalContext.marshal_as < const char* >(usuario);//Convertido a const char*, hay que incluir la libreria de msclr/marshal.
-
-	remove(pcUser + '.txt');
-	rename("1234.txt", pcUser + '.txt');
+	MessageBox::Show("Recordatorio creado exitosamente.");
+	mtbFecha2->Clear();
+	mtbLimite1->Clear();
+	tbDescripcion2->Clear();
+	mtbPrioridad2->Clear();
+	tbID2->Clear();
 }
 private: System::Void BtnCrearA_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ fecha = mtbFecha3->Text;
@@ -901,21 +1191,22 @@ private: System::Void BtnCrearA_Click(System::Object^ sender, System::EventArgs^
 	String^ prioridad = mtbPrioridad3->Text;
 	String^ id = tbID3->Text;
 
-	texto += "R," + fecha + ", " + horaL + ", " + descripcion + ", " + prioridad + ", " + id + ", ";
+	texto = "A," + fecha + ", " + horaL + ", " + descripcion + ", " + prioridad + ", " + id + ", ";
 	StreamReader^ sr = gcnew StreamReader(usuario + ".txt");
 	String^ texto1 = sr->ReadToEnd();
 	sr->Close();
-	StreamWriter^ sw = gcnew StreamWriter("1234.txt");
+
+	StreamWriter^ sw = gcnew StreamWriter(usuario + ".txt");
 	sw->WriteLine(texto);
 	sw->WriteLine(texto1);
 	sw->Close();
 
-
-	msclr::interop::marshal_context oMarshalContext;
-	const char* pcUser = oMarshalContext.marshal_as < const char* >(usuario);//Convertido a const char*, hay que incluir la libreria de msclr/marshal.
-
-	remove(pcUser + '.txt');
-	rename("1234.txt", pcUser + '.txt');
+	MessageBox::Show("Alarma creada exitosamente.");
+	mtbFecha3->Clear();
+	mtbLimite2->Clear();
+	tbDescripcion3->Clear();
+	mtbPrioridad3->Clear();
+	tbID3->Clear();
 }
 };
 }

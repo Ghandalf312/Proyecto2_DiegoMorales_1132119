@@ -146,31 +146,32 @@ namespace Proyecto2DiegoMorales1132119 {
 #pragma endregion
 		Agenda^ agenda = gcnew Agenda(); //Se declara un elemento de tipo Agendapaar poder abrir el siguiente Form.
 private: System::Void BtnRegistro_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (tbUser->Text != "" && tbPassword->Text != "")
+	if (tbUser->Text != "" && tbPassword->Text != "")//Si no están vacíos los Textboxes, se procede a relaizar el siguiente código
 	{
-		StreamReader^ archivo = gcnew StreamReader("users.txt");
+		StreamReader^ archivo = gcnew StreamReader("users.txt");//Lee el archivo de usuarios y se prepara para escribir
 		StreamWriter^ users = gcnew StreamWriter("usersaux.txt");
 		String^ nombre = tbUser->Text;
 		String^ password = tbPassword->Text;
 
-		String^ texto = archivo->ReadLine();
+		String^ texto = archivo->ReadLine();//Lee una línea y lo cierra.
 		archivo->Close();
 
-		StreamReader^ archivo2 = gcnew StreamReader("users.txt");
+		StreamReader^ archivo2 = gcnew StreamReader("users.txt");//Lee otra vez el archivo y lo lee hasta el final
 		String^ texto2 = archivo2->ReadToEnd();
 		
 		archivo2->Close();
+		//NOTA: TODOS LOS "!" QUIERE DECIR QUE EL ARCHIVO DE TEXTO ESTÁ VACÍO. 
+		if (texto == "!")//Si está vacío, quiere decir que no hay ningun usuario registrado.
+		{
+			users->WriteLine(nombre);
+			users->WriteLine(password);
+			MessageBox::Show("Usuario ingresado exitosamente.");
+			StreamWriter^ nombreArchiv = gcnew StreamWriter(nombre + ".txt");//Crea un archivo .txt con el nombre del usuario.
+			nombreArchiv->WriteLine("!");
+			nombreArchiv->Close();
 
-		if (texto == "!")
-		{
-			users->WriteLine(nombre);
-			users->WriteLine(password);
-			MessageBox::Show("Usuario ingresado exitosamente.");
-			StreamWriter^ nombreArchiv = gcnew StreamWriter(nombre + ".txt");
-			nombreArchiv->WriteLine("!");
-			nombreArchiv->Close();
 		}
-		else if (UsuarioExistente(nombre) == false)
+		else if (UsuarioExistente(nombre) == false)//Dado el caso en que nomble que ingreso no sea un usuario existe, enotnces es un usuario nuevo.
 		{
 			users->WriteLine(nombre);
 			users->WriteLine(password);
@@ -178,6 +179,7 @@ private: System::Void BtnRegistro_Click(System::Object^ sender, System::EventArg
 			StreamWriter^ nombreArchiv = gcnew StreamWriter(nombre + ".txt");
 			nombreArchiv->WriteLine("!");
 			nombreArchiv->Close();
+
 
 		}
 		else
@@ -195,12 +197,12 @@ private: System::Void BtnRegistro_Click(System::Object^ sender, System::EventArg
 		System::Windows::Forms::MessageBox::Show("Ingrese un usuario y contraseña válido.");
 	}
 }
-private: bool UsuarioExistente(String^ user) {
+private: bool UsuarioExistente(String^ user) {//Función booleana que verifica si el usuario que fue ingresado existe.
 	StreamReader^ sr = gcnew StreamReader("users.txt");
-	String^ cadena = sr->ReadLine();
-		while (cadena != "!")
+	String^ cadena = sr->ReadLine();//Lee una línea del archivo de texto
+		while (cadena != "!")//Mientras sea diferente de vacío mi archivo de texto.
 		{
-			if (cadena == user)
+			if (cadena == user)//Si la línea de texto que contiene el nombre de usuario en ese momento, es igual al que ingreso, quiere decir que el usuario si existe.
 			{
 				sr->Close();
 				return true;
@@ -213,38 +215,40 @@ private: bool UsuarioExistente(String^ user) {
 		return false;
 }
 private: System::Void BtnLog_Click(System::Object^ sender, System::EventArgs^ e) {
-	StreamReader^ archivo = gcnew StreamReader("users.txt");
-	String^ nombre = tbUser->Text;
-	String^ password = tbPassword->Text;
-	String^ texto1 = archivo->ReadLine();
-	String^ texto2 = archivo->ReadLine();;
-	bool LoEncontro = false;
+	StreamReader^ archivo = gcnew StreamReader("users.txt");//Leerá el archivo de texto con lo usuarios y contraseñas.
+	String^ nombre = tbUser->Text;//Guaradará el nombre ingresado por el usuario. 
+	String^ password = tbPassword->Text;//Guaradará la contraseña ingresada por el usuario.
+	String^ texto1 = archivo->ReadLine();//Guaradará la primera línea de texto de archivo "users.txt" que es a la vez el nombre del usuario.
+	String^ texto2 = archivo->ReadLine();//Guaradará la segunda línea de texto de archivo "users.txt" que es a la vez la contraseña del usuario.
+	bool LoEncontro = false;//Variable booleana que ayudará de puerta para verificar si lo que ingresó el usuario, concuerda con el archivo de texto.
 
-	while (texto1 != "!" && LoEncontro == false)
+	while (texto1 != "!" && LoEncontro == false)// "!" = vacío
 	{
-		if (texto1 == nombre && texto2 == password)
+		if (texto1 == nombre && texto2 == password)// Si son igual, quiere decir que el usuario y contraseña están bine escritos
 		{
 			LoEncontro = true;
 		}
-		texto1 = archivo->ReadLine();
+		texto1 = archivo->ReadLine();//Seguirá yéndose líena por línea hasta que esté vacía.
 		texto2 = archivo->ReadLine();
 	}
 	archivo->Close();
-	if (UsuarioExistente(nombre) == false)
+
+	if (UsuarioExistente(nombre) == false)//Usuario mal escrito
 	{
 		MessageBox::Show("Usuario no existente, registre el nombre de usuario para continuar.");
 	}
-	else if (LoEncontro == true)
+	else if (LoEncontro == true)//Usuario y contraseña hacen match con lo que tiene el archivo de texto.
 	{
 		MessageBox::Show("¡Bienvenido, " + nombre + "!");
-		this->Hide();
-		StreamWriter^ usuarioA = gcnew StreamWriter("UsuarioActivo.txt");
-		usuarioA->WriteLine(nombre);
-		usuarioA->Close();
+		this->Hide();//Esconde el form de Log_in
+		StreamWriter^ usuarioA = gcnew StreamWriter("UsuarioActivo.txt");//Se crea un archivo de texto.
+		usuarioA->WriteLine(nombre);//Escribe en ese archivo el nombre del usuario con el que entró.
+		usuarioA->Close();//Cierra el archivo.
+
 		agenda->ShowDialog();
 		this->Close();
 	}
-	else
+	else//Dado caso haya ingresado una diferente contraseña con la que se registró.
 	{
 		MessageBox::Show("Usuario: " + nombre + "\nContraseña incorrecta.");
 	}
