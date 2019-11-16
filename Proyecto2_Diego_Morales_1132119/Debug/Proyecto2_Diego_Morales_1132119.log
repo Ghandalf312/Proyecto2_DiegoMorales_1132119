@@ -1,3 +1,11 @@
-﻿  Log_in.cpp
-  Agenda.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  Proyecto2_Diego_Morales_1132119.vcxproj -> C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Debug\Proyecto2_Diego_Morales_1132119.exe
+﻿  Agenda.cpp
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(863,1): error C3867:  'System::String::ToCharArray': sintaxis no estándar; utilice '&' para crear un puntero al miembro
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(864,1): error C2664:  'int rename(const char *,const char *)': el argumento 2 no puede convertirse de 'System::String ^' a 'const char *'
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(864,1): message :  No hay un operador de conversión definida por el usuario disponible, o
+  Log_in.cpp
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(864): message :  No se puede convertir un tipo administrado a un tipo nativo
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(863,1): error C3867:  'System::String::ToCharArray': sintaxis no estándar; utilice '&' para crear un puntero al miembro
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(864,1): error C2664:  'int rename(const char *,const char *)': el argumento 2 no puede convertirse de 'System::String ^' a 'const char *'
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(864,1): message :  No hay un operador de conversión definida por el usuario disponible, o
+  Generando código...
+C:\Users\Diego\source\repos\Proyecto2_Diego_Morales_1132119\Proyecto2_Diego_Morales_1132119\Agenda.h(864): message :  No se puede convertir un tipo administrado a un tipo nativo

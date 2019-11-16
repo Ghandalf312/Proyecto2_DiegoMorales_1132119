@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h> //Para remover y renombrar los archivos
-
+#include "Agenda.h"
 namespace Proyecto2DiegoMorales1132119 {
 
 	using namespace System;
@@ -143,6 +143,7 @@ namespace Proyecto2DiegoMorales1132119 {
 
 		}
 #pragma endregion
+		Agenda^ agenda = gcnew Agenda(); //Se declara un elemento de tipo Agendapaar poder abrir el siguiente Form.
 private: System::Void BtnRegistro_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (tbUser->Text != "" && tbPassword->Text != "")
 	{
@@ -164,16 +165,23 @@ private: System::Void BtnRegistro_Click(System::Object^ sender, System::EventArg
 			users->WriteLine(nombre);
 			users->WriteLine(password);
 			MessageBox::Show("Usuario ingresado exitosamente.");
+			StreamWriter^ nombreArchiv = gcnew StreamWriter(nombre + ".txt");
+			nombreArchiv->WriteLine("!");
+			nombreArchiv->Close();
 		}
 		else if (UsuarioExistente(nombre) == false)
 		{
 			users->WriteLine(nombre);
 			users->WriteLine(password);
 			MessageBox::Show("Usuario ingresado exitosamente.");
+			StreamWriter^ nombreArchiv = gcnew StreamWriter(nombre + ".txt");
+			nombreArchiv->WriteLine("!");
+			nombreArchiv->Close();
+
 		}
 		else
 		{
-			MessageBox::Show("Intente con otro usuario.");
+			MessageBox::Show("Usuario existente, por favor, utilice otro nombre.");
 		}
 		users->Write(texto2);
 		users->Close();
@@ -228,6 +236,12 @@ private: System::Void BtnLog_Click(System::Object^ sender, System::EventArgs^ e)
 	else if (LoEncontro == true)
 	{
 		MessageBox::Show("¡Bienvenido, " + nombre + "!");
+		this->Hide();
+		StreamWriter^ usuarioA = gcnew StreamWriter("UsuarioActivo.txt");
+		usuarioA->WriteLine(nombre);
+		usuarioA->Close();
+		agenda->ShowDialog();
+		this->Close();
 	}
 	else
 	{

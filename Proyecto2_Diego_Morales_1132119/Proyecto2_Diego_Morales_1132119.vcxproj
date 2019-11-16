@@ -134,15 +134,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Agenda.cpp" />
+    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Log_in.cpp" />
+    <ClCompile Include="Nodo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agenda.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="Log_in.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Nodo.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Agenda.resx">
